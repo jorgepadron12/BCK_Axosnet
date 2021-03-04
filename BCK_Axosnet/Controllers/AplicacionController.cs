@@ -24,10 +24,10 @@ namespace BCK_Axosnet.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Recibo> Get()
+        public IEnumerable<ReciboModel> Get()
         {
             var rng = new Random();
-            return Enumerable.Range(1, 5).Select(index => new Recibo
+            return Enumerable.Range(1, 5).Select(index => new ReciboModel
             {
                 FechaCreacion = DateTime.Now.AddDays(index),
                 //IdProvvedor = rng.Next(-20, 55),

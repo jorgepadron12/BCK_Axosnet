@@ -2,7 +2,7 @@ using System;
 
 namespace BCK_Axosnet
 {
-    public class Recibo
+    public class ReciboModel
     {
         public Int16 IdRecibo { get; set; }
 
