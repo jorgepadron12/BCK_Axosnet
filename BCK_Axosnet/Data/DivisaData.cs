@@ -2,17 +2,42 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BCK_Axosnet.Model;
+using Microsoft.Data.SqlClient;
 
 namespace BCK_Axosnet.Data
 {
     public class DivisaData
     {
-        public Task<int> GetAll()
+        Conexion _conexion;
+
+        
+        public async Task<String> GetAll()
         {
-            throw new NotImplementedException();
+
+            using (SqlConnection sql = new SqlConnection(_conexion._connectionString))
+            {
+                using (SqlCommand cmd = new SqlCommand("spc_Divisas", sql))
+                {
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    //cmd.Parameters.Add(new SqlParameter("@Id", Id));
+                    String response = null;
+                    await sql.OpenAsync();
+
+                    using (var reader = await cmd.ExecuteReaderAsync())
+                    {
+                        while (await reader.ReadAsync())
+                        {
+                            Console.WriteLine(reader);
+                            //response = MapToValue(reader);
+                        }
+                    }
+                    return response;
+                }
+            }
         }
 
-        public Task GetById(int Id)
+        public Task<DivisaModel> GetById(int Id)
         {
             throw new NotImplementedException();
         }
@@ -28,5 +53,4 @@ namespace BCK_Axosnet.Data
         }
     }
 
-}
 }

@@ -1,6 +1,6 @@
 using System;
 
-namespace BCK_Axosnet
+namespace BCK_Axosnet.Model
 {
     public class ReciboModel
     {

@@ -27,6 +27,4 @@ namespace BCK_Axosnet.Data
             throw new NotImplementedException();
         }
     }
-
-}
 }

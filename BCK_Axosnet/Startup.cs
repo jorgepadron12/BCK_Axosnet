@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace BCK_Axosnet
 {
@@ -26,6 +27,12 @@ namespace BCK_Axosnet
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            //services.AddScoped();
+            services.AddMvc();
+
+            //Add database services.
+            services.AddDbContext<Conexion>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("Produccion")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
