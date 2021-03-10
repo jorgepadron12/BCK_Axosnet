@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BCK_Axosnet
+namespace BCK_Axosnet.Model
 {
     public class ProveedorModel
     {
@@ -9,4 +9,5 @@ namespace BCK_Axosnet
         public String NombreProveedor { get; set; }
 
         public String Direccion { get; set; }
+    }
 }
