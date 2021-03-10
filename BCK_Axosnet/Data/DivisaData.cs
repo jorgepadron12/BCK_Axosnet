@@ -9,7 +9,7 @@ namespace BCK_Axosnet.Data
 {
     public class DivisaData
     {
-        Conexion _conexion;
+        Conexion _conexion = new Conexion();
 
         
         public async Task<String> GetAll()
